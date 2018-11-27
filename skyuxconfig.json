@@ -1,0 +1,6 @@
+{
+  "mode": "easy",
+  "compileMode": "aot",
+  "a11y": true,
+  "auth": true
+}

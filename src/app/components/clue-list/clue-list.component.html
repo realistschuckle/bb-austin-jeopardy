@@ -1,0 +1,10 @@
+<div class="clue-list">
+  <div class="clue-square"
+      *ngFor="let clue of clues"
+      (click)="selectClue(clue)"
+      >
+    ${{ clue.value }}
+  </div>
+</div>
+<app-clue-detail *ngIf="currentlySelectedClue"
+                 [clue]="currentlySelectedClue"></app-clue-detail>

@@ -1,0 +1,9 @@
+<dl>
+  <dt>Answer</dt>
+  <dd>{{ clue.question }}</dd>
+  <dt>Value</dt>
+  <dd>{{ clue.value }}</dd>
+  <dt [title]="clue.category_id">Category</dt>
+  <dd>{{ clue.category.title }}</dd>
+</dl>
+<div *ngIf="show">Hi!</div>

@@ -1,0 +1,16 @@
+.clue-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.clue-square {
+  width: 100px;
+  height: 100px;
+  background-color: steelblue;
+  color: yellow;
+  font-family: 'Impact';
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

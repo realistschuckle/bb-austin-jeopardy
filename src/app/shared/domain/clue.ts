@@ -13,3 +13,13 @@ export class Clue {
   public notRequiredButOptional?: boolean;
   public category: Category;
 }
+
+export interface ClueDto {
+  id: number;
+  answer: string;
+  question: string;
+  value: number;
+  category_id: number;
+  invalid_count?: number;
+  category: Category;
+}

@@ -6,5 +6,6 @@
     ${{ clue.value }}
   </div>
 </div>
+<app-timer *ngIf="currentlySelectedClue"></app-timer>
 <app-clue-detail *ngIf="currentlySelectedClue"
                  [clue]="currentlySelectedClue"></app-clue-detail>

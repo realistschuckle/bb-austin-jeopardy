@@ -1,4 +1,5 @@
-<div class="clue-list">
+<h1 style="text-align: center;" *ngIf="shouldIShowIsLoadingMessage">LOADING...</h1>
+<div class="clue-list" *ngIf="!shouldIShowIsLoadingMessage">
   <div class="clue-square"
       *ngFor="let clue of clues"
       (click)="selectClue(clue)"

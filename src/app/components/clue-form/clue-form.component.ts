@@ -12,6 +12,7 @@ import { CluesService } from '../../shared/services/clues.service';
 export class ClueFormComponent implements OnInit {
   public clue: Clue;
   public errorMessage: string;
+  public shouldIHideIt: boolean;
 
   constructor(
     private service: CluesService
@@ -19,6 +20,9 @@ export class ClueFormComponent implements OnInit {
 
   public ngOnInit(): void {
     this.clue = new Clue();
+    this.service
+      .isLoading
+      .subscribe(hide => this.shouldIHideIt = hide);
   }
 
   public submitClue(): void {

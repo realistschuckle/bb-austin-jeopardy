@@ -13,6 +13,7 @@ export class ClueListComponent implements OnInit {
 
   public clues: Clue[];
   public currentlySelectedClue: Clue;
+  public shouldIShowIsLoadingMessage: boolean;
 
   constructor(
     private service: CluesService
@@ -20,8 +21,16 @@ export class ClueListComponent implements OnInit {
 
   public ngOnInit(): void {
     this.service
+      .isLoading
+      .subscribe(isLoading => {
+        this.shouldIShowIsLoadingMessage = isLoading;
+      });
+
+    this.service
       .fetch()
-      .subscribe(clues => this.clues = clues);
+      .subscribe(clues => {
+        this.clues = clues;
+      });
   }
 
   public selectClue(clue: Clue): void {

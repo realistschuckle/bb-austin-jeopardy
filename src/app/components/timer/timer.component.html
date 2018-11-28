@@ -1,3 +1,4 @@
-<div>
-  {{ timeLeft }} seconds
+<div class="timer">
+  <span *ngIf="timeLeft">{{ timeLeft }} seconds</span>
+  <span *ngIf="!timeLeft">Over</span>
 </div>

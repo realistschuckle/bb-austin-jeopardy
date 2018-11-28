@@ -9,6 +9,6 @@ export class CountdownService {
   public ticker(value: number): Observable<number> {
     return Observable.timer(0, 1000)
       .map((timerCount: number) => value - timerCount)
-      .takeWhile((remainingValue: number) => remainingValue > 0);
+      .takeWhile((remainingValue: number) => remainingValue >= 0);
   }
 }

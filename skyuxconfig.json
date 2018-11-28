@@ -1,6 +1,5 @@
 {
   "mode": "easy",
   "compileMode": "aot",
-  "a11y": true,
-  "auth": true
+  "a11y": true
 }

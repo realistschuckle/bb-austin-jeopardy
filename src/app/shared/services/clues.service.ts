@@ -1,5 +1,6 @@
 // import { Http } from '@angular/http';
-import { SkyAuthHttp } from '@blackbaud/skyux-builder/runtime';
+// import { SkyAuthHttp } from '@blackbaud/skyux-builder/runtime';
+import { Http } from '@angular/http';
 import { Clue, ClueDto } from '../domain/clue';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
@@ -7,7 +8,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CluesService {
   constructor(
-    private service: SkyAuthHttp
+    // private service: SkyAuthHttp
+    private service: Http
   ) {}
 
   public fetch(): Observable<Clue[]> {
@@ -16,7 +18,8 @@ export class CluesService {
       // HTTP Response
       .map(response => response.json())
       // List of "clue dto" objects
-      .map(lotsOfClueDtosWithSomeBad => lotsOfClueDtosWithSomeBad.filter((clue: ClueDto) => clue.value && clue.invalid_count === 0));
+      .map(lotsOfClueDtosWithSomeBad => lotsOfClueDtosWithSomeBad.filter((clue: ClueDto) => clue.value && !clue.invalid_count))
+      .map(goodClueDtos => goodClueDtos.slice(4, 9));
   }
 
   public create(clue: Clue): Observable<Clue> {

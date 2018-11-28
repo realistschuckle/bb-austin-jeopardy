@@ -13,20 +13,12 @@ export class CluesService {
   public fetch(): Observable<Clue[]> {
     return this.service
       .get('https://localhost:8443/http://jservice.io/api/clues%3Fcategory=4')
-      .map(response => response.json())
-      .map(clues => clues.filter((clue: Clue) => clue.value))
-      .map(clues => clues.reduce((acc: any, clue: Clue) => {
-        if (!acc[clue.value]) {
-          acc[clue.value] = clue;
-        }
-        return acc;
-      }, {}))
-      .map(o => Object.keys(o).map(key => o[key]))
-      .map(clues => clues.sort((a: Clue, b: Clue) => {
-        if (a.value < b.value) { return -1; }
-        if (a.value > b.value) { return 1; }
-        return 0;
-      }))
-      .map(clues => clues.slice(0, 5));
+      .map(response => response.json());
+  }
+
+  public create(clue: Clue): Observable<Clue> {
+    return this.service
+      .post('https://localhost:8443/http://jservice.io/api/clues%3Fcategory=4', clue)
+      .map(response => response.json());
   }
 }

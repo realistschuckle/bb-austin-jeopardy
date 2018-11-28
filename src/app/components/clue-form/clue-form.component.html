@@ -1,0 +1,23 @@
+<fieldset>
+  <legend>Create a clue</legend>
+  <div>{{ errorMessage }}</div>
+  <form #clueForm="ngForm" (submit)="submitClue()">
+    <div>
+      <input required name="question" type="text"
+             placeholder="question" [(ngModel)]="clue.question">
+    </div>
+    <div>
+      <input required name="answer" type="text"
+             placeholder="answer" [(ngModel)]="clue.answer">
+    </div>
+    <div>
+      <input required name="value" type="number"
+             placeholder="value" [(ngModel)]="clue.value">
+    </div>
+    <button class="sky-btn sky-btn-primary" [disabled]="!clueForm.form.valid">
+      Create new clue
+    </button>
+    <button type="button" class="sky-btn sky-btn-secondary">Call your mother</button>
+    <button type="reset" class="sky-btn sky-btn-secondary">Reset form</button>
+  </form>
+</fieldset>
